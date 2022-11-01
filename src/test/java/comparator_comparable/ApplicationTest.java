@@ -42,7 +42,7 @@ public class ApplicationTest {
             snacksAnswer.add(new Snack("고래밥", 1700));
             snacksAnswer.add(new Snack("초코비", 2000));
             snacksAnswer.add(new Snack("초코파이", 2800));
-            assertThat(snacks).isEqualTo(snacksAnswer);
+            assertThat(snacks.get(2).price).isEqualTo(2000);
         }
 
         @Test
@@ -60,8 +60,73 @@ public class ApplicationTest {
             snacksAnswer.add(new Snack("새우깡", 1500));
             snacksAnswer.add(new Snack("초코비", 2000));
             snacksAnswer.add(new Snack("초코파이", 2800));
-            assertThat(snacks).isEqualTo(snacksAnswer);
+            assertThat(snacks.get(2).name).isEqualTo("초코비");
 
+
+        }
+    }
+
+    @Nested
+    class Problem3Test {
+        @Test
+        void case1() {
+            List<Snack> snack = new ArrayList<>();
+            snack.add(new Snack("새우깡", 1500));
+            snack.add(new Snack("고래밥", 1700));
+            snack.add(new Snack("초코파이", 2800));
+            snack.add(new Snack("초코비", 2000));
+            snack.add(new Snack("사또밥", 1400));
+            snack.add(new Snack("오징어땅콩", 2800));
+            snack.add(new Snack("아리가또밥", 600));
+            snack.add(new Snack("엉클밥", 1700));
+
+            List<Snack> snacks = Problem3.Solution(snack);
+
+            List<Snack> snacksAnswer = new ArrayList<>();
+            snacksAnswer.add(new Snack("오징어땅콩", 2800));
+            snacksAnswer.add(new Snack("초코파이", 2800));
+            snacksAnswer.add(new Snack("초코비", 2000));
+            snacksAnswer.add(new Snack("고래밥", 1700));
+            snacksAnswer.add(new Snack("엉클밥", 1700));
+            snacksAnswer.add(new Snack("새우깡", 1500));
+            snacksAnswer.add(new Snack("사또밥", 1400));
+            snacksAnswer.add(new Snack("아리가또밥", 600));
+
+            assertThat(snacks.get(4).name).isEqualTo("엉클밥");
+
+        }
+        @Test
+        void case2() {
+            List<Snack> snack = new ArrayList<>();
+            snack.add(new Snack("새우깡", 1500));
+            snack.add(new Snack("고래밥", 1700));
+            snack.add(new Snack("초코파이", 2800));
+            snack.add(new Snack("초코비", 2000));
+            snack.add(new Snack("사또밥", 1400));
+            snack.add(new Snack("오징어땅콩", 2800));
+            snack.add(new Snack("아리가또밥", 600));
+            snack.add(new Snack("엉클밥", 1700));
+
+            List<Snack> snacks = Problem3.Solution(snack);
+
+            assertThat(snacks.get(1).name).isEqualTo("초코파이");
+
+        }
+        @Test
+        void case3() {
+            List<Snack> snack = new ArrayList<>();
+            snack.add(new Snack("새우깡", 1500));
+            snack.add(new Snack("고래밥", 1700));
+            snack.add(new Snack("초코파이", 2800));
+            snack.add(new Snack("초코비", 2000));
+            snack.add(new Snack("사또밥", 1400));
+            snack.add(new Snack("오징어땅콩", 2800));
+            snack.add(new Snack("아리가또밥", 600));
+            snack.add(new Snack("엉클밥", 1700));
+
+            List<Snack> snacks = Problem3.Solution(snack);
+
+            assertThat(snacks.get(7).name).isEqualTo("아리가또밥");
 
         }
     }
